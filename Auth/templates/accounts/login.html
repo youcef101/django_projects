@@ -1,0 +1,24 @@
+
+{% block content %}
+<h1>Login</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label  class="form-label">Username</label>
+    <input type="username" name="username" class="form-control"  >
+   
+  </div>
+   <div class="mb-3">
+    <label  class="form-label">Password</label>
+    <input type="password" name="password" class="form-control"  >
+   
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+ you don't have an account <a href="{% url 'register' %}">Register</a>
+ <a href="{% url 'reset_password' %}"> Frogot password</a>
+{% endblock %}

@@ -1,0 +1,27 @@
+
+{% block content %}
+<h1>register</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+  <div class="mb-3">
+    {{form.username.label}}
+    {{form.username}}<br>
+     {{form.email.label}}
+    {{form.email}}<br>
+     {{form.password1.label}}
+    {{form.password1}}<br>
+     {{form.password2.label}}
+    {{form.password2}}<br><br>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <div class="g-recaptcha" data-sitekey="6Le0aTkaAAAAAHVaJp7RxuNqUm0z2uFJpG94aW-I"></div>
+  </div>
+  <br><br>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+ 
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+ you already have an account <a href="{% url 'login' %}">login</a>
+{% endblock %}
